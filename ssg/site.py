@@ -1,29 +1,18 @@
-from distutils.util import convert_path
 from genericpath import exists
-from importlib.resources import path
-from lib2to3.pytree import convert
-import site
 from pathlib import Path
 
-class Site(self, source, dest):
-    self.source = convert.Path()
-    self.dest = convert_Path()
-    create_dir(self, path)
+class Site:
+    def __init__(self, source, dest):
+        self.source = Path(source)
+        self.dest = Path(dest)
 
-    def create_dir():
-        directory = self.dest(destination / relative_to())
-        directory.mkdir(
-            parents = True
-            exists_ok = True
-        )
+    def create_dir(self, path):
+        directory = self.dest / path.relative_to(self.source)
+        directory.mkdir(parents+True, exists_ok=True)
 
-    def build():
-        self.dest.mkdir(
-            parents = True
-            exists_ok = True
-        )
-        for:
-            self.source.rglob("*")
-            path()
-            if path == dir:
-                create_dir(path)
+    def build(self):
+        self.dest,mkdir(parents=True, exists_ok=True)
+        for path in self.source.rglob("*"):
+            if path.is_dir[]:
+                self.create_dir(path)
+
