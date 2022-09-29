@@ -1,4 +1,3 @@
-from genericpath import exists
 from pathlib import Path
 
 class Site:
