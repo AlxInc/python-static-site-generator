@@ -50,5 +50,5 @@ class ReStructuredTextParser(Parser):
     def parse(self, path: Path, source: Path, dest: Path) -> Path:
         content = Content.load(self.read(path))
         html = publish_parts(content.body, writer_name="html5")
-        self.write(html["html_body"], dest, html)
+        self.write(path, dest, html["html_body"])
         sys.stdout.write("\x1b[1;32m{} converted to HTML. Metadata: {}\n".format(path.name, content))
